@@ -1,0 +1,192 @@
+{
+    "name": "email-alerts",
+    "parameters": {},
+    "services": {},
+    "settings": {
+        "auto_eviction": false,
+        "data_passing_memory_size": "1GB"
+    },
+    "steps": {
+        "0f4ad447-fdaf-43bd-9b75-3330b1d14164": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "write_anomaly_points_to_clarify.py",
+            "incoming_connections": [
+                "17b34262-94ca-48eb-acfe-64da47079a92"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    810.5,
+                    80
+                ]
+            },
+            "parameters": {
+                "item_name": ""
+            },
+            "title": "Write anomaly points to Clarify",
+            "uuid": "0f4ad447-fdaf-43bd-9b75-3330b1d14164"
+        },
+        "178081d7-5c12-4e6e-b08f-38e4bbc8de61": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "Train_Isolation_Forest.ipynb",
+            "incoming_connections": [
+                "59786e6f-e87d-451b-aec1-0e81494639a9"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    283.5,
+                    383.5
+                ]
+            },
+            "parameters": {
+                "outliers_fraction": 0.01
+            },
+            "title": "Train Anomaly Detection algorithm",
+            "uuid": "178081d7-5c12-4e6e-b08f-38e4bbc8de61"
+        },
+        "17b34262-94ca-48eb-acfe-64da47079a92": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "trigger_alarm.py",
+            "incoming_connections": [
+                "571955be-7b6e-4777-887e-87ba11d752c0"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    547,
+                    169.25000000000003
+                ]
+            },
+            "parameters": {},
+            "title": "Trigger Alarm",
+            "uuid": "17b34262-94ca-48eb-acfe-64da47079a92"
+        },
+        "2026b516-e604-4749-b77a-f2b4f68e3d89": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "getting_new_data.py",
+            "incoming_connections": [],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    20,
+                    169.25000000000006
+                ]
+            },
+            "parameters": {
+                "hours": 1,
+                "item_id": "c1vcqk2005qb5nusljko"
+            },
+            "title": "Getting new data",
+            "uuid": "2026b516-e604-4749-b77a-f2b4f68e3d89"
+        },
+        "31a237b9-af59-4ba6-876e-931e10cc9fdc": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "final_output.py",
+            "incoming_connections": [
+                "0f4ad447-fdaf-43bd-9b75-3330b1d14164",
+                "c45da3fa-e0d5-4bc7-b6bf-528f89eef669"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    1104.975935828877,
+                    154.4211229946524
+                ]
+            },
+            "parameters": {},
+            "title": "Final output",
+            "uuid": "31a237b9-af59-4ba6-876e-931e10cc9fdc"
+        },
+        "571955be-7b6e-4777-887e-87ba11d752c0": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "Test_Isolation_Forest.ipynb",
+            "incoming_connections": [
+                "2026b516-e604-4749-b77a-f2b4f68e3d89"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    283.5,
+                    169.25000000000003
+                ]
+            },
+            "parameters": {},
+            "title": "Test Anomaly Detection algorithm",
+            "uuid": "571955be-7b6e-4777-887e-87ba11d752c0"
+        },
+        "59786e6f-e87d-451b-aec1-0e81494639a9": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "load_clarify_data.py",
+            "incoming_connections": [],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    20,
+                    383.5
+                ]
+            },
+            "parameters": {
+                "from": "2022-03-01T12:00:00Z",
+                "get_all_data": true,
+                "item_id": "c1vcqk2005qb5nusljko"
+            },
+            "title": "Load Clarify Data",
+            "uuid": "59786e6f-e87d-451b-aec1-0e81494639a9"
+        },
+        "c45da3fa-e0d5-4bc7-b6bf-528f89eef669": {
+            "environment": "69a43e05-ec5e-4c78-884e-d753d093ab81",
+            "file_path": "send_email.py",
+            "incoming_connections": [
+                "17b34262-94ca-48eb-acfe-64da47079a92"
+            ],
+            "kernel": {
+                "display_name": "Python 3",
+                "name": "python"
+            },
+            "meta_data": {
+                "hidden": false,
+                "position": [
+                    810.5,
+                    258.5
+                ]
+            },
+            "parameters": {
+                "receiver_email": "",
+                "sender_email": ""
+            },
+            "title": "Send email",
+            "uuid": "c45da3fa-e0d5-4bc7-b6bf-528f89eef669"
+        }
+    },
+    "uuid": "10c93caf-0ab1-4906-ae77-08283099656e",
+    "version": "1.0.0"
+}

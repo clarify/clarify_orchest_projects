@@ -1,0 +1,3 @@
+.orchest/pipelines/*/logs/
+.orchest/pipelines/*/data/
+.ipynb_checkpoints/
